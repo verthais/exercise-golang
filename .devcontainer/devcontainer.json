@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/go
+{
+	"name": "exercise-golang",
+	"image": "golang:latest",
+	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined", "--network=host" ],
+	// Comment out to connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "root",
+	"mounts": [
+	  "source=${localEnv:HOME}/.ssh,target=/tmp/.ssh,type=bind,consistency=cached"
+	],
+	"containerEnv": {},
+	"forwardPorts": [8080, 8080],
+	"extensions": [
+		"DavidAnson.vscode-markdownlint",
+		"golang.go"
+	],
+	"settings": {
+	}
+}
