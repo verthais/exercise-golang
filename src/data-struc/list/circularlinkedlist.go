@@ -57,7 +57,6 @@ func (l *CircularLinkedList) AddBack(value int) {
 	l.Size = 1
 }
 
-// Inserts element at index or back of the list
 func (l *CircularLinkedList) AddAtIndex(idx, value int) {
 	new := &dnode{Value: value, Next: nil, Prev: nil}
 
