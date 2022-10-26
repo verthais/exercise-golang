@@ -52,7 +52,7 @@ func (l *LinkedList) AddBack(value int) {
 }
 
 // Inserts element at index or back of the list
-func (l *LinkedList) AddIndex(idx, value int) {
+func (l *LinkedList) AddAtIndex(idx, value int) {
 	new := &node{Value: value, Next: nil}
 
 	if l.Head == nil {
@@ -72,23 +72,6 @@ func (l *LinkedList) AddIndex(idx, value int) {
 	prev.Next = new
 	new.Next = cur
 	l.Size++
-}
-
-// Returns index of first element with given value
-func Find(l *LinkedList, value int) (int, *node) {
-	n := l.Head
-	idx := 0
-
-	for n != nil {
-		if n.Value == value {
-			return idx, n
-		} else {
-			n = n.Next
-			idx++
-		}
-	}
-
-	return -1, nil
 }
 
 func (l *LinkedList) PopFront() (int, error) {
@@ -135,12 +118,4 @@ func (l *LinkedList) PopBack() (int, error) {
 	n.Next = nil
 	l.Size--
 	return r.Value, nil
-}
-
-//
-
-type DoubleLinkedList struct {
-	Size int
-	Head *node
-	Tail *node
 }

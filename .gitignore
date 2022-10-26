@@ -1,3 +1,4 @@
 # Ignore any build artifacts
 
 target*
+.vscode*

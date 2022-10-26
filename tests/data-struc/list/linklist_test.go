@@ -38,7 +38,7 @@ func TestLinkedList(t *testing.T) {
 	tests.AssertEqual(t, l.Head.Next.Value, 1)
 
 	// [0, 1, 2, 3]
-	l.AddIndex(2, 2)
+	l.AddAtIndex(2, 2)
 	tests.AssertEqual(t, l.Size, 4)
 
 	// [0, 1, 2, 3]
@@ -73,4 +73,15 @@ func TestLinkedList(t *testing.T) {
 	tests.AssertEqual(t, err, nil)
 	tests.AssertEqual(t, l.Size, 1)
 	tests.AssertEqual(t, value, 3)
+}
+
+func TestLinkedList_AddAtIndex(t *testing.T) {
+	// []
+	l := list.NewLinkedList()
+	tests.AssertEqual(t, l.Size, 0)
+
+	// [2]
+	l.AddAtIndex(0, 2)
+	tests.AssertEqual(t, l.Size, 1)
+	tests.AssertEqual(t, l.Head.Value, 2)
 }
