@@ -1,16 +1,16 @@
 package trees
 
-type Node struct {
+type BinaryTreeNode struct {
 	Value int
-	Left  *Node
-	Right *Node
+	Left  *BinaryTreeNode
+	Right *BinaryTreeNode
 }
 
-func NewNode(value int) *Node {
-	return &Node{Value: value, Left: nil, Right: nil}
+func NewNode(value int) *BinaryTreeNode {
+	return &BinaryTreeNode{Value: value, Left: nil, Right: nil}
 }
 
-func (n *Node) Insert(value int) {
+func (n *BinaryTreeNode) Insert(value int) {
 	if value > n.Value {
 		if n.Right != nil {
 			n.Right.Insert(value)
@@ -26,7 +26,7 @@ func (n *Node) Insert(value int) {
 	}
 }
 
-func (n *Node) Search(value int) *Node {
+func (n *BinaryTreeNode) Search(value int) *BinaryTreeNode {
 	if n.Value == value {
 		return n
 	}
@@ -47,7 +47,7 @@ func (n *Node) Search(value int) *Node {
 }
 
 type BinaryTree struct {
-	Root *Node
+	Root *BinaryTreeNode
 }
 
 func NewBinaryTree() BinaryTree {
@@ -62,7 +62,7 @@ func (t *BinaryTree) Insert(value int) {
 	t.Root.Insert(value)
 }
 
-func (t BinaryTree) Search(value int) *Node {
+func (t BinaryTree) Search(value int) *BinaryTreeNode {
 	if t.Root == nil {
 		return nil
 	}
