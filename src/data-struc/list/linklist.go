@@ -10,7 +10,7 @@ type LinkedList struct {
 }
 
 type node struct {
-	Value int
+	Value interface{}
 	Next  *node
 }
 
@@ -18,7 +18,7 @@ func NewLinkedList() LinkedList {
 	return LinkedList{Size: 0, Head: nil}
 }
 
-func (l *LinkedList) AddFront(value int) {
+func (l *LinkedList) AddFront(value interface{}) {
 	new := &node{Value: value, Next: nil}
 
 	if n := l.Head; n != nil {
@@ -32,7 +32,7 @@ func (l *LinkedList) AddFront(value int) {
 	l.Size = 1
 }
 
-func (l *LinkedList) AddBack(value int) {
+func (l *LinkedList) AddBack(value interface{}) {
 	new := &node{Value: value, Next: nil}
 
 	if l.Head == nil {
@@ -52,7 +52,7 @@ func (l *LinkedList) AddBack(value int) {
 }
 
 // Inserts element at index or back of the list
-func (l *LinkedList) AddAtIndex(idx, value int) {
+func (l *LinkedList) AddAtIndex(idx int, value interface{}) {
 	new := &node{Value: value, Next: nil}
 
 	if l.Head == nil {
@@ -74,7 +74,7 @@ func (l *LinkedList) AddAtIndex(idx, value int) {
 	l.Size++
 }
 
-func (l *LinkedList) PopFront() (int, error) {
+func (l *LinkedList) PopFront() (interface{}, error) {
 	if l.Head == nil {
 		return 0, errors.New("Cannot pop from empty list")
 	}
@@ -85,7 +85,7 @@ func (l *LinkedList) PopFront() (int, error) {
 	return value, nil
 }
 
-func (l *LinkedList) PopIdx(index int) (int, error) {
+func (l *LinkedList) PopIdx(index int) (interface{}, error) {
 	var prev, cur *node
 	prev, cur = nil, l.Head
 
@@ -104,7 +104,7 @@ func (l *LinkedList) PopIdx(index int) (int, error) {
 	return value, nil
 }
 
-func (l *LinkedList) PopBack() (int, error) {
+func (l *LinkedList) PopBack() (interface{}, error) {
 	if l.Head == nil {
 		return 0, errors.New("Cannot pop from empty list")
 	}

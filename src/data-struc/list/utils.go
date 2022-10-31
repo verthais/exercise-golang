@@ -5,7 +5,7 @@ package list
 // }
 
 // Returns index of first element with given value
-func Find(l *LinkedList, value int) (int, *node) {
+func Find(l *LinkedList, value interface{}) (int, *node) {
 	n := l.Head
 	idx := 0
 
