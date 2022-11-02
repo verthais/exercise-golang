@@ -14,7 +14,7 @@ func NewStack() Stack {
 }
 
 func (s *Stack) Push(value interface{}) {
-	s.data.AddFront(value.(int))
+	s.data.AddFront(value)
 }
 
 func (s *Stack) Pop() (interface{}, error) {

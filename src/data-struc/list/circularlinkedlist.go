@@ -10,7 +10,7 @@ type CircularLinkedList struct {
 	Tail *dnode
 }
 type dnode struct {
-	Value int
+	Value interface{}
 	Next  *dnode
 	Prev  *dnode
 }
@@ -19,7 +19,7 @@ func NewCircularLinkedList() CircularLinkedList {
 	return CircularLinkedList{Size: 0, Head: nil, Tail: nil}
 }
 
-func (l *CircularLinkedList) AddFront(value int) {
+func (l *CircularLinkedList) AddFront(value interface{}) {
 	new := &dnode{Value: value, Next: nil, Prev: nil}
 
 	if l.Head != nil {
@@ -38,7 +38,7 @@ func (l *CircularLinkedList) AddFront(value int) {
 	l.Size = 1
 }
 
-func (l *CircularLinkedList) AddBack(value int) {
+func (l *CircularLinkedList) AddBack(value interface{}) {
 	new := &dnode{Value: value, Next: nil}
 
 	if l.Tail != nil {
@@ -57,7 +57,7 @@ func (l *CircularLinkedList) AddBack(value int) {
 	l.Size = 1
 }
 
-func (l *CircularLinkedList) AddAtIndex(idx, value int) {
+func (l *CircularLinkedList) AddAtIndex(idx int, value interface{}) {
 	new := &dnode{Value: value, Next: nil, Prev: nil}
 
 	if l.Head == nil {
@@ -86,7 +86,7 @@ func (l *CircularLinkedList) AddAtIndex(idx, value int) {
 	l.Size++
 }
 
-func (l *CircularLinkedList) PopFront() (int, error) {
+func (l *CircularLinkedList) PopFront() (interface{}, error) {
 	if l.Head == nil {
 		return 0, errors.New("Cannot pop from empty list")
 	}
@@ -96,7 +96,7 @@ func (l *CircularLinkedList) PopFront() (int, error) {
 	return value, nil
 }
 
-func (l *CircularLinkedList) PopIdx(index int) (int, error) {
+func (l *CircularLinkedList) PopIdx(index int) (interface{}, error) {
 	cur := l.Head
 
 	if l.Size-1 < index {
@@ -118,7 +118,7 @@ func (l *CircularLinkedList) PopIdx(index int) (int, error) {
 	return value, nil
 }
 
-func (l *CircularLinkedList) PopBack() (int, error) {
+func (l *CircularLinkedList) PopBack() (interface{}, error) {
 	if l.Tail == nil {
 		return 0, errors.New("Cannot pop from empty list")
 	}

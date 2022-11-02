@@ -14,7 +14,7 @@ func NewQueue() Queue {
 }
 
 func (q *Queue) Push(value interface{}) {
-	q.data.AddBack(value.(int))
+	q.data.AddBack(value)
 }
 
 func (q *Queue) Pop() (interface{}, error) {
